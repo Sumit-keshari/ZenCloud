@@ -1,0 +1,145 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: #4361ee;
+}
+
+.plan-details,
+.usage-stats,
+.system-health {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-details:hover,
+.usage-stats:hover,
+.system-health:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.plan-details h2,
+.usage-stats h2,
+.system-health h2 {
+  font-size: 1.5rem;
+  color: #3f37c9;
+  margin-bottom: 15px;
+}
+
+.plan-details p,
+.usage-stats p,
+.system-health p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.progress-bar-container {
+  margin: 15px 0;
+  background: #e9ecef;
+  border-radius: 5px;
+  height: 15px;
+  position: relative;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #4cc9f0;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.system-health .status {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.status-item {
+  text-align: center;
+}
+
+.status-item i {
+  font-size: 2rem;
+  color: #4895ef;
+}
+
+.status-item p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.back-btn {
+  background-color: #4361ee;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #3a56d4;
+}
+
+.server-btn {
+  background-color: #4cc9f0;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.server-btn:hover {
+  background-color: #4895ef;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

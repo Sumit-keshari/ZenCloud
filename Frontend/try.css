@@ -1,0 +1,67 @@
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Logo Styles */
+.logo h1 {
+  font-size: 3rem;
+  color: #4361ee;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo h1 span {
+  color: #3f37c9;
+}
+
+/* Message Styles */
+.message h2 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Log Container Styles */
+.log-container {
+  background: #212529;
+  color: #4cc9f0;
+  padding: 20px;
+  border-radius: 10px;
+  height: 200px;
+  overflow-y: auto;
+  font-family: "Courier New", Courier, monospace;
+  text-align: left;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
