@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ZenCloud</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome to Your Dashboard</h1>
+        </div>
+
+        <div class="plan-details">
+            <h2>Your Plan Details</h2>
+            <p id="dashboard-plan">Plan: Beginner</p>
+            <p id="dashboard-price">Amount Paid: ₹99</p>
+            <p id="dashboard-expiry">Expiry Date: 30 Days from Purchase</p>
+        </div>
+
+        <div class="usage-stats">
+            <h2>Usage Statistics</h2>
+            <p>Storage Used: <span id="storage-used">25GB</span> / 50GB</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="storage-progress" style="width: 50%;"></div>
+            </div>
+            <p>Active Devices: <span id="active-devices">2</span></p>
+        </div>
+
+        <div class="system-health">
+            <h2>System Health</h2>
+            <div class="status">
+                <div class="status-item">
+                    <i class="fas fa-server"></i>
+                    <p>Server Status: <span style="color: green;">Online</span></p>
+                </div>
+                <div class="status-item">
+                    <i class="fas fa-cloud"></i>
+                    <p>Cloud Sync: <span style="color: green;">Active</span></p>
+                </div>
+                <div class="status-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Security: <span style="color: green;">Secure</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="server-section">
+            <button id="your-server-btn" class="server-btn" style="display: none;">Your Server</button>
+        </div>
+
+        <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+    <script src="/ZenCloud-main/Frontend/Backend/dashboard.js"></script>
+</body>
+
+</html>

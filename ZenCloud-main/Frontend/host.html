@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Server - ZenCloud</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="host.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">ZenCloud</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="custom.html">Custom Plan</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="host.html" class="active">Host Server</a>
+            <a id="auth-link" href="login.html">Login</a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hosting Initialization Section -->
+    <div class="host-container">
+        <h1>Server Hosting Initialization</h1>
+        <p id="host-prompt">Your server is being hosted...</p>
+        <div class="log-container">
+            <pre id="log-output"></pre>
+        </div>
+        <button id="start-hosting-btn" class="start-btn">Start Hosting</button>
+    </div>
+
+    <script src="/ZenCloud-main/Frontend/Backend/host.js"></script>
+</body>
+
+</html>

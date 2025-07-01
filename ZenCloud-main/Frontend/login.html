@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ZenCloud</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">ZenCloud</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="custom.html">Custom Plan</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="register.html">Register</a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <main class="auth-main">
+        <div class="auth-container">
+            <h2>Login to Your Account</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+                <div id="login-message"></div>
+            </form>
+            <div class="auth-footer">
+                Don't have an account? <a href="register.html">Register here</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ZenCloud-main/Frontend/Database/auth.js"></script>
+</body>
+
+</html>

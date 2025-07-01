@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Plan - ZenCloud</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">ZenCloud</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="custom.html" class="active">Custom Plan</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a id="auth-link" href="login.html">Login</a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Custom Plan Section -->
+    <div class="custom-plan-container">
+        <h1>Create Your Custom Plan</h1>
+        <form id="custom-plan-form">
+            <div class="form-group">
+                <label for="ram">Select RAM:</label>
+                <select id="ram">
+                    <option value="4">4GB - ₹200</option>
+                    <option value="8">8GB - ₹400</option>
+                    <option value="16">16GB - ₹800</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="storage">Select Storage:</label>
+                <input type="range" id="storage" min="50" max="500" step="50" value="50">
+                <div class="slider-info">
+                    <span id="storage-value">50GB</span> - ₹<span id="storage-price">50</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cpu">Select CPU:</label>
+                <select id="cpu">
+                    <option value="2">2 Cores - ₹300</option>
+                    <option value="4">4 Cores - ₹600</option>
+                    <option value="8">8 Cores - ₹1200</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="os">Select Operating System:</label>
+                <select id="os">
+                    <option value="windows">Windows</option>
+                    <option value="mac">Mac</option>
+                    <option value="linux">Linux</option>
+                </select>
+            </div>
+
+            <div class="form-group total-price">
+                <h2>Total Price: ₹<span id="total-price">550</span></h2>
+            </div>
+
+            <button type="button" id="order-btn" class="order-btn">Order Now</button>
+        </form>
+    </div>
+
+   <script src="/ZenCloud-main/Frontend/Backend/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="payment-container">
+        <h1>Complete Your Payment</h1>
+        <div class="plan-info">
+            <h2 id="plan-name">Plan: Beginner</h2>
+            <h3 id="plan-price">Price: ₹99</h3>
+        </div>
+
+        <div class="payment-methods">
+            <h3>Select Payment Method</h3>
+
+            <div class="method-tabs">
+                <button class="tab-btn active" onclick="showTab('upi')">UPI</button>
+                <button class="tab-btn" onclick="showTab('card')">Credit/Debit Card</button>
+            </div>
+
+            <div id="upi-tab" class="tab-content active">
+                <div class="upi-options">
+                    <button class="upi-btn" onclick="selectUPI('googlepay')">
+                        <img src="/ZenCloud-main/Frontend/Images/google-pay-logo-transparent-free-png.webp" alt="Google Pay">
+                        Google Pay
+                    </button>
+                    <button class="upi-btn" onclick="selectUPI('phonepay')">
+                        <img src="/ZenCloud-main/Frontend/Images/download.jpg" alt="PhonePe">
+                        PhonePe
+                    </button>
+                    <button class="upi-btn" onclick="selectUPI('paytm')">
+                        <img src="/ZenCloud-main/Frontend/Images/paytm-logo-icon-free-vector.jpg" alt="Paytm">
+                        Paytm
+                    </button>
+                </div>
+
+                <div class="upi-input">
+                    <label for="upi-id">Enter UPI ID:</label>
+                    <input type="text" id="upi-id" placeholder="example@upi">
+                </div>
+            </div>
+
+            <div id="card-tab" class="tab-content">
+                <div class="card-input">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+
+                    <div class="card-row">
+                        <div class="card-col">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="card-col">
+                            <label for="cvv">CVV</label>
+                            <input type="password" id="cvv" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+
+                    <label for="card-name">Name on Card</label>
+                    <input type="text" id="card-name" placeholder="John Doe">
+                </div>
+            </div>
+        </div>
+
+        <div id="success-message" class="success-message">
+            <i class="fas fa-check-circle"></i>
+            <span>Payment Successful!</span>
+        </div>
+
+        <button class="pay-now-btn" onclick="processPayment()">Pay Now</button>
+    </div>
+
+    <script>
+        // Get plan from URL or localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan') || localStorage.getItem('selectedPlan') || 'beginner';
+        const price = urlParams.get('price') || localStorage.getItem('selectedPrice') || '99';
+
+        document.getElementById('plan-name').textContent = `Plan: ${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
+        document.getElementById('plan-price').textContent = `Price: ₹${price}`;
+
+        function selectUPI(app) {
+            document.getElementById('upi-id').value = `${app}@example.com`;
+        }
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+
+            // Update active tab button
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+
+        function processPayment() {
+            const upiId = document.getElementById('upi-id').value;
+            const cardNumber = document.getElementById('card-number').value;
+
+            if (!upiId && !cardNumber) {
+                alert('Please enter payment details');
+                return;
+            }
+
+            // Store payment info
+            localStorage.setItem('paymentStatus', 'success');
+            localStorage.setItem('paidPlan', plan);
+            localStorage.setItem('paidPrice', price);
+
+            // Show success message
+            const successMsg = document.getElementById('success-message');
+            successMsg.style.display = 'flex';
+            successMsg.style.opacity = '1';
+
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'host.html';
+            }, 2000);
+        }
+
+        // Format card number input
+        document.getElementById('card-number').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim();
+        });
+
+        // Format expiry date input
+        document.getElementById('expiry-date').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').replace(/(\d{2})(\d{0,2})/, '$1/$2');
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const user = localStorage.getItem("authUser");
+            if (!user) {
+                alert("You must log in to access the payment page.");
+                window.location.href = "login.html"; // Redirect to login page
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenCloud - Your Cloud Storage Solution</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="/ZenCloud-main/Frontend/Database/auth.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">ZenCloud</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="custom.html">Custom Plan</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a id="auth-link" href="login.html">Login</a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Secure Cloud Storage <br>For Everyone</h1>
+            <p>Store, access, and share your files from anywhere with ZenCloud's reliable and secure platform</p>
+            <a href="#pricing" class="cta-button">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://aos.rw/wp-content/uploads/2022/12/banner_img.gif" alt="Cloud Storage Illustration"
+                style="background: transparent;">
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Why Choose ZenCloud?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Bank-Level Security</h3>
+                <p>256-bit encryption keeps your files safe from unauthorized access</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Automatic Sync</h3>
+                <p>Your files stay updated across all your devices automatically</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Easy Sharing</h3>
+                <p>Share files with anyone using secure links with expiration dates</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-history"></i>
+                <h3>Version History</h3>
+                <p>Access previous versions of your files for up to 30 days</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="container">
+        <h1>Simple, Transparent Pricing</h1>
+        <div class="plans">
+            <div class="plan-card" onclick="selectPlan('beginner', 99)">
+                <h2>Beginner</h2>
+                <p class="price">₹99/month</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> 50GB Storage</li>
+                    <li><i class="fas fa-check"></i> 2 User Accounts</li>
+                    <li><i class="fas fa-check"></i> Email Support</li>
+                    <li><i class="fas fa-check"></i> File Versioning</li>
+                </ul>
+                <button class="select-btn">Select Plan</button>
+            </div>
+
+            <div class="plan-card popular" onclick="selectPlan('pro', 299)">
+                <div class="popular-badge">Most Popular</div>
+                <h2>Pro</h2>
+                <p class="price">₹299/month</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> 500GB Storage</li>
+                    <li><i class="fas fa-check"></i> 5 User Accounts</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                    <li><i class="fas fa-check"></i> Advanced Sharing</li>
+                </ul>
+                <button class="select-btn">Select Plan</button>
+            </div>
+
+            <div class="plan-card" onclick="selectPlan('enterprise', 599)">
+                <h2>Enterprise</h2>
+                <p class="price">₹599/month</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> 2TB Storage</li>
+                    <li><i class="fas fa-check"></i> Unlimited Users</li>
+                    <li><i class="fas fa-check"></i> 24/7 Support</li>
+                    <li><i class="fas fa-check"></i> Admin Dashboard</li>
+                </ul>
+                <button class="select-btn">Select Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="quote">"ZenCloud has transformed how our team collaborates. The seamless file sharing saves
+                    us hours every week!"</div>
+                <div class="author">-Rishi Kesarwani, UI/UX Designer</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote">"I've tried many cloud services, but ZenCloud's security features give me peace of
+                    mind for my sensitive documents."</div>
+                <div class="author">-Ramji Maurya, Database Manager</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ZenCloud</h3>
+                <p>Your trusted cloud storage solution since 2023</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 ZenCloud. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function selectPlan(plan, price) {
+            const user = localStorage.getItem("authUser"); // Replace with your authentication logic
+            if (!user) {
+                alert("You must log in to purchase a plan.");
+                window.location.href = "login.html"; // Redirect to login page
+                return;
+            }
+            localStorage.setItem("selectedPlan", plan);
+            localStorage.setItem("selectedPrice", price);
+            window.location.href = `payment.html?plan=${plan}&price=${price}`;
+        }
+    </script>
+</body>
+
+</html>
